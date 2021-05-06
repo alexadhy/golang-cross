@@ -1,12 +1,12 @@
 # golang parameters
 ARG GO_VERSION
 
-FROM troian/golang-cross:v${GO_VERSION}-base
+FROM alexadhyatma/golang-cross:v${GO_VERSION}-base
 
 # Install deps
 RUN \
     set -x; \
-    echo "Starting image build for Debian Stretch" \
+    echo "Starting image build for Debian Buster" \
  && apt-get update \
  && apt-get install --no-install-recommends -y -q \
         gcc \

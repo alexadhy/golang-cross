@@ -10,7 +10,7 @@ Should you wish to see working [examples](#examples) instead of reading
 This project is rather cookbook. Actual work to create cross-compile environment is done by [osxcross](https://github.com/tpoechtrager/osxcross) and [golang-cross](https://github.com/gythialy/golang-cross)
 
 ## Docker
-[Docker image](https://hub.docker.com/repository/docker/troian/golang-cross)
+[Docker image](https://hub.docker.com/repository/docker/alexadhy/golang-cross)
 
 To run build with CGO each entry requires some environment variables
 
@@ -60,8 +60,8 @@ Window|amd64|x86_64-w64-mingw32-gcc|x86_64-w64-mingw32-g++|Verification required
 - GITHUB_TOKEN - github auth token to deploy release
 
 ## Sysroot
-Most reasonable way to make a sysroot seem to be rsync and [this example](https://github.com/troian/golang-cross-example) is using it.
-This [script](https://github.com/troian/golang-cross/blob/master/scripts/sysroot-rsync.sh) can help you with creating sysroot.
+Most reasonable way to make a sysroot seem to be rsync and [this example](https://github.com/alexadhy/golang-cross-example) is using it.
+This [script](https://github.com/alexadhy/golang-cross/blob/master/scripts/sysroot-rsync.sh) can help you with creating sysroot.
 Lets consider creating sysroot for Raspberry Pi 4 running Debian Buster.
 - install all required dev packages. for this example we will install libftdi1-dev, libusb-1.0-0-dev and opencv4
   ```bash
@@ -78,7 +78,7 @@ For example `/usr/lib/x86_x64-gnu-linux/libpthread.so` on RPI4 running Debian Bu
 Any contribution helping to make this project is welcome
 
 ## Examples
- - [Example described in this tutorial](https://github.com/troian/golang-cross-example)
+ - [Example described in this tutorial](https://github.com/alexadhy/golang-cross-example)
 
 ## Projects using
  - [Akash](https://github.com/ovrclk/akash)

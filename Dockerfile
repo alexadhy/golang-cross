@@ -1,7 +1,7 @@
 ARG GO_VERSION
-FROM troian/golang-cross-builder:v${GO_VERSION}
+FROM alexadhy/golang-cross-builder:v${GO_VERSION}
 
-LABEL maintainer="Artur Troian <troian dot ap at gmail dot com>"
+LABEL maintainer="Alexander Adhyatma <alexadhyatma dot mailbox dot org>"
 
 COPY entrypoint.sh /
 

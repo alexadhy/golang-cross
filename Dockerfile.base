@@ -7,14 +7,14 @@ ARG DEBIAN_FRONTEND=noninteractive
 ARG GORELEASER_VERSION
 ARG GORELEASER_SHA
 ARG APT_MIRROR
-LABEL maintainer="Artur Troian <troian dot ap at gmail dot com>"
+LABEL maintainer="Alexander Adhyatma <alexadhyatma dot mailbox dot org>"
 
 COPY entrypoint.sh /
 
 # Install deps
 RUN \
     set -x \
- && echo "Starting image build for Debian Stretch" \
+ && echo "Starting image build for Debian Buster" \
  && sed -ri "s/(httpredir|deb).debian.org/${APT_MIRROR:-deb.debian.org}/g" /etc/apt/sources.list \
  && sed -ri "s/(security).debian.org/${APT_MIRROR:-security.debian.org}/g" /etc/apt/sources.list \
  && apt-get update \

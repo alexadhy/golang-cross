@@ -1,14 +1,14 @@
-CROSS_IMAGE_NAME   := troian/golang-cross-builder
-IMAGE_NAME         := troian/golang-cross
-GHCR_IMAGE_NAME    ?= ghcr.io/$(IMAGE_NAME)
+CROSS_IMAGE_NAME   := alexadhyatma/golang-cross-builder
+IMAGE_NAME         := alexadhyatma/golang-cross
+GHCR_IMAGE_NAME    ?= ghcr.io/alexadhy/golang-cross
 GO_VERSION         ?= 1.16.3
 TAG_VERSION        := v$(GO_VERSION)
 GORELEASER_VERSION := 0.159.0
 GORELEASER_SHA     := 68ce200307ab83f62cc98feb74bfc642110dbe63ab1b51f172190a797cf2627c
-OSX_SDK            := MacOSX11.1.sdk
-OSX_SDK_SUM        := 0a9b0bae4623960483d882fb8b7c8fca66e8863ac69d9066bafe0a3d12b67293
-OSX_VERSION_MIN    := 10.13
-OSX_CROSS_COMMIT   := 035cc170338b7b252e3f13b0e3ccbf4411bffc41
+OSX_SDK            := MacOSX11.3.sdk
+OSX_SDK_SUM        := cd4f08a75577145b8f05245a2975f7c81401d75e9535dcffbb879ee1deefcbf4
+OSX_VERSION_MIN    := 10.14
+OSX_CROSS_COMMIT   := 5771a847950abefed9a37e2d16ee10e0dd90c641
 DEBIAN_FRONTEND    := noninteractive
 
 SUBIMAGES = linux-amd64

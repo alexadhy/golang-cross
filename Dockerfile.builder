@@ -58,6 +58,8 @@ RUN \
         cmake \
         qemu-user-static \
         openssl \
+        libgtk-3-dev \
+        libappindicator-3-dev \
  && apt -y autoremove \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
@@ -91,7 +93,7 @@ RUN \
  && UNATTENDED=yes OSX_VERSION_MIN=${OSX_VERSION_MIN} ./build.sh
 
 FROM osx-cross-base AS final
-LABEL maintainer="Artur Troian <troian dot ap at gmail dot com>"
+LABEL maintainer="Alexander Adhyatma <alexadhyatma dot mailbox dot org>"
 ARG DEBIAN_FRONTEND=noninteractive
 
 COPY --from=osx-cross "${OSX_CROSS_PATH}/." "${OSX_CROSS_PATH}/"
