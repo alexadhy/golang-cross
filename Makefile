@@ -1,7 +1,7 @@
 CROSS_IMAGE_NAME   := alexadhyatma/golang-cross-builder
 IMAGE_NAME         := alexadhyatma/golang-cross
 GHCR_IMAGE_NAME    ?= ghcr.io/alexadhy/golang-cross
-GO_VERSION         ?= 1.16.3
+GO_VERSION         ?= 1.16.4
 TAG_VERSION        := v$(GO_VERSION)
 GORELEASER_VERSION := 0.159.0
 GORELEASER_SHA     := 68ce200307ab83f62cc98feb74bfc642110dbe63ab1b51f172190a797cf2627c
