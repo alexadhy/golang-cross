@@ -2,9 +2,6 @@
 ARG GO_VERSION
 FROM alexadhyatma/golang-cross:v${GO_VERSION}-base AS base
 
-#ARG APT_MIRROR
-#RUN sed -ri "s/(httpredir|deb).debian.org/${APT_MIRROR:-deb.debian.org}/g" /etc/apt/sources.list \
-# && sed -ri "s/(security).debian.org/${APT_MIRROR:-security.debian.org}/g" /etc/apt/sources.list
 ENV OSX_CROSS_PATH=/osxcross
 
 FROM base AS osx-sdk
@@ -20,7 +17,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 # Install deps
 RUN \
     set -x; \
-    echo "Starting image build for Debian Buster" \
+    echo "Starting image build for Ubuntu Focal" \
  && dpkg --add-architecture arm64 \
  && dpkg --add-architecture armel \
  && dpkg --add-architecture armhf \
@@ -33,7 +30,6 @@ RUN \
         binfmt-support \
         binutils-multiarch \
         build-essential \
-        clang \
         gcc \
         g++ \
         mingw-w64 \
@@ -42,10 +38,11 @@ RUN \
         crossbuild-essential-armhf \
         devscripts \
         libtool \
-        llvm \
         multistrap \
         patch \
         qemu-user-static \
+        clang \
+        llvm \
  && apt -y autoremove \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
@@ -61,6 +58,7 @@ RUN \
 
 COPY --from=osx-sdk "${OSX_CROSS_PATH}/." "${OSX_CROSS_PATH}/"
 ARG OSX_VERSION_MIN
+# RUN bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)" \
 RUN \
     apt-get update \
  && apt-get install --no-install-recommends -y -q \
@@ -81,6 +79,5 @@ RUN \
 FROM osx-cross-base AS final
 LABEL maintainer="Alexander Adhyatma <alexadhyatma at mailbox dot org>"
 ARG DEBIAN_FRONTEND=noninteractive
-
 COPY --from=osx-cross "${OSX_CROSS_PATH}/." "${OSX_CROSS_PATH}/"
 ENV PATH=${OSX_CROSS_PATH}/target/bin:$PATH
