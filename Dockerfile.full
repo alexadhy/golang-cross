@@ -40,6 +40,7 @@ RUN \
         libtool \
         multistrap \
         patch \
+        pkg-config \
         qemu-user-static \
         clang \
         llvm \
